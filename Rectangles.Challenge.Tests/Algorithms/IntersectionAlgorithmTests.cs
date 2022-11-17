@@ -46,6 +46,7 @@ public class IntersectionAlgorithmTests
 
     public static IEnumerable<object[]> IntersectionTestCases()
     {
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
@@ -56,6 +57,7 @@ public class IntersectionAlgorithmTests
                 new(5, 2)
             }
         };
+        // Case 2
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
@@ -66,6 +68,7 @@ public class IntersectionAlgorithmTests
                 new(5, 2)
             }
         };
+        // Case 3
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
@@ -76,6 +79,7 @@ public class IntersectionAlgorithmTests
                 new(2, 5)
             }
         };
+        // Case 4
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
@@ -86,6 +90,7 @@ public class IntersectionAlgorithmTests
                 new(2, 0)
             }
         };
+        // Case 5
         // Additional Cases
         yield return new object[]
         {
@@ -97,6 +102,7 @@ public class IntersectionAlgorithmTests
                 new(4, 4)
             }
         };
+        // Case 6
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -106,6 +112,7 @@ public class IntersectionAlgorithmTests
                 new(4, 4)
             }
         };
+        // Case 7
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -116,6 +123,7 @@ public class IntersectionAlgorithmTests
                 new(2, 4)
             }
         };
+        // Case 8
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -125,6 +133,7 @@ public class IntersectionAlgorithmTests
                 new(0, 4)
             }
         };
+        // Case 9
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -135,6 +144,7 @@ public class IntersectionAlgorithmTests
                 new(0, 2)
             }
         };
+        // Case 10
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -144,6 +154,7 @@ public class IntersectionAlgorithmTests
                 new(0, 0)
             }
         };
+        // Case 11
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -154,6 +165,7 @@ public class IntersectionAlgorithmTests
                 new(3, 0)
             }
         };
+        // Case 12
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -167,21 +179,25 @@ public class IntersectionAlgorithmTests
 
     public static IEnumerable<object[]> NoIntersectionTestCases()
     {
+        // Case 13
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(6, 0), new Size(4, 4))
         };
+        // Case 14
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(0, 6), new Size(4, 4))
         };
+        // Case 15
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(-5, 0), new Size(4, 4))
         };
+        // Case 16
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),

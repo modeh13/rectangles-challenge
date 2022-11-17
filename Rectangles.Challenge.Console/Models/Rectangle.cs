@@ -6,7 +6,6 @@ public class Rectangle
     public Line RightLine  { get; set; }
     public Line TopLine  { get; set; }
     public Line LeftLine  { get; set; }
-    
     public Point TopLeft { get; }
     public Point BottomLeft { get; }
     public Point TopRight { get; }

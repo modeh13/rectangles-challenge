@@ -13,6 +13,6 @@ public class ContainmentAlgorithm : IRectangleAlgorithm<ResultBase>
                                    rectangleA.Contains(rectangleB.TopRight) &&
                                    rectangleA.Contains(rectangleB.BottomRight);
 
-        return isRectangleContained ? new ResultBase(ResultType.Containment) : new ResultBase(ResultType.NoContainment);
+        return isRectangleContained ? new ResultBase(ResultType.Containment) : new ResultBase(ResultType.NotContainment);
     }
 }

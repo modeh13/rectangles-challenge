@@ -28,8 +28,8 @@ public class ContainmentAlgorithmTests
     }
     
     [Theory]
-    [MemberData(nameof(NoContainmentTestCases))]
-    public void Execute_Returns_NoContainment(Rectangle rectangleA, Rectangle rectangleB)
+    [MemberData(nameof(NotContainmentTestCases))]
+    public void Execute_Returns_NotContainment(Rectangle rectangleA, Rectangle rectangleB)
     {
         // Arrange
         // Act
@@ -37,7 +37,7 @@ public class ContainmentAlgorithmTests
 
         // Assert
         Assert.NotNull(resultBase);
-        Assert.Equal(ResultType.NoContainment.Name, resultBase.ResultType.Name);
+        Assert.Equal(ResultType.NotContainment.Name, resultBase.ResultType.Name);
     }
 
     public static IEnumerable<object[]> ContainmentTestCases()
@@ -74,7 +74,7 @@ public class ContainmentAlgorithmTests
         };
     }
     
-    public static IEnumerable<object[]> NoContainmentTestCases()
+    public static IEnumerable<object[]> NotContainmentTestCases()
     {        
         yield return new object[]
         {

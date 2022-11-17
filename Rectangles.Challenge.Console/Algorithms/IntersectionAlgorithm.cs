@@ -8,27 +8,29 @@ public class IntersectionAlgorithm : IRectangleAlgorithm<IntersectionResult>
 {
     public IntersectionResult Execute(Rectangle rectangleA, Rectangle rectangleB)
     {
-        var containmentAlgorithm = new ContainmentAlgorithm();
-        if (containmentAlgorithm.Execute(rectangleA, rectangleA).ResultType.Value == ResultType.Containment.Value)
-        {
-            return new IntersectionResult(ResultType.NoIntersection, new List<Point>());
-        }
-        var adjacencyAlgorithm = new AdjacencyAlgorithm();
-        if (adjacencyAlgorithm.Execute(rectangleA, rectangleA).ResultType.Value != ResultType.NotAdjacent.Value)
-        {
-            return new IntersectionResult(ResultType.NoIntersection, new List<Point>());
-        }
-
-        var intersectionPoints = new List<Point>();
+        var intersectionPoints = new HashSet<Point>();
         var rectangleAVersusB = GetIntersectionPoints(rectangleA, rectangleB);
         var rectangleBVersusA = GetIntersectionPoints(rectangleB, rectangleA);
-        
-        intersectionPoints.AddRange(rectangleAVersusB);
-        intersectionPoints.AddRange(rectangleBVersusA);
+
+        AddPoints(intersectionPoints, rectangleAVersusB);
+        AddPoints(intersectionPoints, rectangleBVersusA);
 
         return intersectionPoints.Any() ? 
             new IntersectionResult(ResultType.Intersection, intersectionPoints.OrderBy(p => p.X).ThenBy(p => p.Y).ToList()) :
             new IntersectionResult(ResultType.NoIntersection, new List<Point>());
+    }
+
+    /// <summary>
+    /// Adds Intersections points to HasSet collection to prevent duplicates.
+    /// </summary>
+    /// <param name="hashSet"><see cref="HashSet{T}"/> collection</param>
+    /// <param name="points">A collection of intersection <see cref="Point"/></param>
+    private static void AddPoints(ISet<Point> hashSet, IEnumerable<Point> points)
+    {
+        foreach (var point in points)
+        {
+            hashSet.Add(point);
+        }
     }
 
     /// <summary>

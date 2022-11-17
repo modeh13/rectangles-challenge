@@ -86,6 +86,83 @@ public class IntersectionAlgorithmTests
                 new(2, 0)
             }
         };
+        // Additional Cases
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 0), new Size(3, 4)),
+            new List<Point>
+            {
+                new(4, 0),
+                new(4, 4)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 4), new Size(3, 2)),
+            new List<Point>
+            {
+                new(4, 4)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, 4), new Size(2, 2)),
+            new List<Point>
+            {
+                new(0, 4),
+                new(2, 4)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-3, 4), new Size(3, 2)),
+            new List<Point>
+            {
+                new(0, 4)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-3, 0), new Size(3, 2)),
+            new List<Point>
+            {
+                new(0, 0),
+                new(0, 2)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-3, -2), new Size(3, 2)),
+            new List<Point>
+            {
+                new(0, 0)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, -2), new Size(3, 2)),
+            new List<Point>
+            {
+                new(0, 0),
+                new(3, 0)
+            }
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, -2), new Size(3, 2)),
+            new List<Point>
+            {
+                new(4, 0)
+            }
+        };
     }
 
     public static IEnumerable<object[]> NoIntersectionTestCases()
@@ -109,46 +186,6 @@ public class IntersectionAlgorithmTests
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(0, -5), new Size(4, 4))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(4, 0), new Size(3, 4))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(4, 4), new Size(3, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(0, 4), new Size(2, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(-3, 4), new Size(3, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(-3, 0), new Size(3, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(-3, -2), new Size(3, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(0, -2), new Size(3, 2))
-        };
-        yield return new object[]
-        {
-            new Rectangle(new Point(0, 0), new Size(4, 4)),
-            new Rectangle(new Point(4, -2), new Size(3, 2))
         };
     }
 }

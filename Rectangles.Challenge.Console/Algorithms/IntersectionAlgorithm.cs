@@ -8,8 +8,18 @@ public class IntersectionAlgorithm : IRectangleAlgorithm<IntersectionResult>
 {
     public IntersectionResult Execute(Rectangle rectangleA, Rectangle rectangleB)
     {
-        var intersectionPoints = new List<Point>();
+        var containmentAlgorithm = new ContainmentAlgorithm();
+        if (containmentAlgorithm.Execute(rectangleA, rectangleA).ResultType.Value == ResultType.Containment.Value)
+        {
+            return new IntersectionResult(ResultType.NoIntersection, new List<Point>());
+        }
+        var adjacencyAlgorithm = new AdjacencyAlgorithm();
+        if (adjacencyAlgorithm.Execute(rectangleA, rectangleA).ResultType.Value != ResultType.NotAdjacent.Value)
+        {
+            return new IntersectionResult(ResultType.NoIntersection, new List<Point>());
+        }
 
+        var intersectionPoints = new List<Point>();
         var rectangleAVersusB = GetIntersectionPoints(rectangleA, rectangleB);
         var rectangleBVersusA = GetIntersectionPoints(rectangleB, rectangleA);
         
@@ -17,7 +27,7 @@ public class IntersectionAlgorithm : IRectangleAlgorithm<IntersectionResult>
         intersectionPoints.AddRange(rectangleBVersusA);
 
         return intersectionPoints.Any() ? 
-            new IntersectionResult(ResultType.Intersection, intersectionPoints) :
+            new IntersectionResult(ResultType.Intersection, intersectionPoints.OrderBy(p => p.X).ThenBy(p => p.Y).ToList()) :
             new IntersectionResult(ResultType.NoIntersection, new List<Point>());
     }
 

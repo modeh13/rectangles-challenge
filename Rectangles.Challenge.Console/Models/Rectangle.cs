@@ -2,6 +2,11 @@ namespace Rectangles.Challenge.Console.Models;
 
 public class Rectangle
 {
+    public Line BottomLine { get; set; }
+    public Line RightLine  { get; set; }
+    public Line TopLine  { get; set; }
+    public Line LeftLine  { get; set; }
+    
     public Point TopLeft { get; }
     public Point BottomLeft { get; }
     public Point TopRight { get; }
@@ -27,14 +32,20 @@ public class Rectangle
 
         Size = size;
         BottomLeft = bottomLeft;
-        TopLeft = new Point(BottomLeft.X, bottomLeft.Y + Size.Height);
+        TopLeft = BottomLeft with {Y = bottomLeft.Y + Size.Height};
         TopRight = new Point(BottomLeft.X + Size.Width, bottomLeft.Y + Size.Height);
-        BottomRight = new Point(BottomLeft.X + Size.Width, BottomLeft.Y);
+        BottomRight = BottomLeft with {X = BottomLeft.X + Size.Width};
+        
+        BottomLine = new HorizontalLine(BottomLeft, BottomRight);
+        RightLine = new VerticalLine(BottomRight, TopRight);
+        TopLine = new HorizontalLine(TopLeft, TopRight);
+        LeftLine = new VerticalLine(BottomLeft, TopLeft);
     }
 
     public bool Contains(Point point)
     {
-        return point.X >= BottomLeft.X && point.X <= BottomRight.X && point.Y >= BottomLeft.Y && point.Y <= TopLeft.Y;
+        return point.X >= BottomLeft.X && point.X <= BottomRight.X && 
+               point.Y >= BottomLeft.Y && point.Y <= TopLeft.Y;
     }
 
     public IEnumerable<HorizontalLine> GetHorizontalLines()

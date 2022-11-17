@@ -1,33 +1,29 @@
-﻿using Rectangles.Challenge.Console.Algorithms.Abstractions;
+﻿using Rectangles.Challenge.Console.Algorithms;
+using Rectangles.Challenge.Console.Algorithms.Abstractions;
 using Rectangles.Challenge.Console.Models;
 
-Console.WriteLine("Test");
+// api/Rectangle/Compare {A, B, A1, A2, A3}
 
-// IRectangleAlgorithm intersectionAlgorithm = new IntersectionAlgorithm();
-// IRectangleAlgorithm containmentAlgorithm = new ContainmentAlgorithm();
+Console.WriteLine("Rectangle Algorithms");
 
-// var rectangleA = new Rectangle(new Point(0, 0), 5, 5);
-// var rectangleB = new Rectangle(new Point(2, 2), 4, 4);
-// Console.WriteLine($"Intersection Result : {intersectionAlgorithm.GetResult(rectangleA, rectangleB)}");
-//
-// var rectangleC = new Rectangle(new Point(0, 0), 5, 5);
-// var rectangleD = new Rectangle(new Point(2, 2), 2, 2);
-// Console.WriteLine($"Containment Result : {containmentAlgorithm.GetResult(rectangleC, rectangleD)}");
-// Console.WriteLine($"Contains : {rectangleA.Contains(rectangleB.BottomLeft)}");
+var algorithmOrchestrator = new AlgorithmOrchestrator(new List<IRectangleAlgorithm<ResultBase>>
+{
+    new IntersectionAlgorithm(),
+    new ContainmentAlgorithm(),
+    new AdjacencyAlgorithm()
+});
 
+var rectangleA = new Rectangle(new Point(0, 0), new Size(5, 5));
+var rectangleB = new Rectangle(new Point(2, 2), new Size(4, 4));
+var rectangleC = new Rectangle(new Point(2, 2), new Size(3, 3));
+var result = algorithmOrchestrator.ExecuteAlgorithms(rectangleA, rectangleC);
 
-// public class ContainmentAlgorithm : IRectangleAlgorithm
-// {
-//     public string GetResult(Rectangle rectangleA, Rectangle rectangleB)
-//     {
-//         var isRectangleContained = rectangleA.Contains(rectangleB.BottomLeft) &&
-//                                     rectangleA.Contains(rectangleB.TopLeft) &&
-//                                     rectangleA.Contains(rectangleB.TopRight) &&
-//                                     rectangleA.Contains(rectangleB.BottomRight);
-//
-//         return isRectangleContained ? "Containment" : "No Containment";
-//     }
-// }
+Console.WriteLine(result);
+System.Drawing.Rectangle rectA = new System.Drawing.Rectangle(0, 0, 5, 5);
+Console.WriteLine(rectA.Contains(new System.Drawing.Rectangle(0, 0, 2, 2)));
+
+// [GR] - Review case where Rectangle is contained and is at one of borders.
+// [GR] - Document Start and Line
 
 public class AlgorithmOrchestrator
 {
@@ -38,7 +34,7 @@ public class AlgorithmOrchestrator
         _rectangleAlgorithms = rectangleAlgorithms;
     }
 
-    public string CheckAlgorithms(Rectangle rectangleA, Rectangle rectangleB)
+    public string ExecuteAlgorithms(Rectangle rectangleA, Rectangle rectangleB)
     {
         var results = _rectangleAlgorithms.Select(rectangleAlgorithm => rectangleAlgorithm.Execute(rectangleA, rectangleB));
         

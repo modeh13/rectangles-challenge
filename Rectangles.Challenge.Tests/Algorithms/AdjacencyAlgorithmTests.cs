@@ -1,0 +1,209 @@
+using Rectangles.Challenge.Console.Algorithms;
+using Rectangles.Challenge.Console.Algorithms.Abstractions;
+using Rectangles.Challenge.Console.Models;
+using Rectangles.Challenge.Console.Models.Enums;
+
+namespace Rectangles.Challenge.Tests.Algorithms;
+
+public class AdjacencyAlgorithmTests
+{
+    private readonly IRectangleAlgorithm<ResultBase> _adjacencyAlgorithm;
+
+    public AdjacencyAlgorithmTests()
+    {
+        _adjacencyAlgorithm = new AdjacencyAlgorithm();
+    }
+
+    [Theory]
+    [MemberData(nameof(AdjacencySubLineTestCases))]
+    public void Execute_Returns_AdjacencySubLine(Rectangle rectangleA, Rectangle rectangleB)
+    {
+        // Arrange
+        // Act
+        var resultBase = _adjacencyAlgorithm.Execute(rectangleA, rectangleB);
+        
+        // Assert
+        Assert.NotNull(resultBase);
+        Assert.Equal(ResultType.AdjacentSubLine.Name, resultBase.ResultType.Name);
+    }
+    
+    [Theory]
+    [MemberData(nameof(AdjacencyProperTestCases))]
+    public void Execute_Returns_AdjacencyProper(Rectangle rectangleA, Rectangle rectangleB)
+    {
+        // Arrange
+        // Act
+        var resultBase = _adjacencyAlgorithm.Execute(rectangleA, rectangleB);
+        
+        // Assert
+        Assert.NotNull(resultBase);
+        Assert.Equal(ResultType.AdjacentProper.Name, resultBase.ResultType.Name);
+    }
+    
+    [Theory]
+    [MemberData(nameof(AdjacencyPartialTestCases))]
+    public void Execute_Returns_AdjacencyPartial(Rectangle rectangleA, Rectangle rectangleB)
+    {
+        // Arrange
+        // Act
+        var resultBase = _adjacencyAlgorithm.Execute(rectangleA, rectangleB);
+        
+        // Assert
+        Assert.NotNull(resultBase);
+        Assert.Equal(ResultType.AdjacentPartial.Name, resultBase.ResultType.Name);
+    }
+    
+    [Theory]
+    [MemberData(nameof(NotAdjacentTestCases))]
+    public void Execute_Returns_NotAdjacent(Rectangle rectangleA, Rectangle rectangleB)
+    {
+        // Arrange
+        // Act
+        var resultBase = _adjacencyAlgorithm.Execute(rectangleA, rectangleB);
+        
+        // Assert
+        Assert.NotNull(resultBase);
+        Assert.Equal(ResultType.NotAdjacent.Name, resultBase.ResultType.Name);
+    }
+
+    public static IEnumerable<object[]> AdjacencySubLineTestCases()
+    {
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 1), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 0), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(1, 4), new Size(2, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, 4), new Size(2, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, 1), new Size(2, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, 0), new Size(2, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(1, -2), new Size(2, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, -2), new Size(2, 2))
+        };
+    }
+    
+    public static IEnumerable<object[]> AdjacencyProperTestCases()
+    {
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 0), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, 4), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-4, 0), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, -4), new Size(4, 4))
+        };
+    }
+    
+    public static IEnumerable<object[]> AdjacencyPartialTestCases()
+    {
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 2), new Size(2, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, 4), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, -2), new Size(2, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(2, -2), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, -2), new Size(2, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(2, 4), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, 2), new Size(2, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-2, -2), new Size(4, 2))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(4, 0), new Size(4, 6))
+        };
+    }
+    
+    public static IEnumerable<object[]> NotAdjacentTestCases()
+    {
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(5, 0), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, 5), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(-5, 0), new Size(4, 4))
+        };
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(4, 4)),
+            new Rectangle(new Point(0, -5), new Size(4, 4))
+        };
+    }
+}

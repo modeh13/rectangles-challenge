@@ -25,4 +25,9 @@
       <ProjectReference Include="..\Rectangles.Challenge.Core\Rectangles.Challenge.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Algorithms\References\Containment" />
+      <Folder Include="Algorithms\References\Intersection" />
+    </ItemGroup>
+
 </Project>

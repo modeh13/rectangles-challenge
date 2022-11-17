@@ -1,8 +1,8 @@
-using Rectangles.Challenge.Console.Algorithms.Abstractions;
-using Rectangles.Challenge.Console.Models;
-using Rectangles.Challenge.Console.Models.Enums;
+using Rectangles.Challenge.Core.Algorithms.Abstractions;
+using Rectangles.Challenge.Core.Models;
+using Rectangles.Challenge.Core.Models.Enums;
 
-namespace Rectangles.Challenge.Console.Algorithms;
+namespace Rectangles.Challenge.Core.Algorithms;
 
 public class IntersectionAlgorithm : IRectangleAlgorithm<IntersectionResult>
 {

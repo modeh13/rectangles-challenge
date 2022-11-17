@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Rectangles.Challenge.Console\Rectangles.Challenge.Console.csproj" />
+      <ProjectReference Include="..\Rectangles.Challenge.Core\Rectangles.Challenge.Core.csproj" />
     </ItemGroup>
 
 </Project>

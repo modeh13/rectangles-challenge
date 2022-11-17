@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles.Challenge.Console", ".\Rectangles.Challenge.Console\Rectangles.Challenge.Console.csproj", "{2E06962E-1AD5-4E7A-8DF0-E8B819E3525D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles.Challenge.Tests", "Rectangles.Challenge.Tests\Rectangles.Challenge.Tests.csproj", "{3821C3EF-21DB-4A57-BC11-19CE969E5095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles.Challenge.Api", "Rectangles.Challenge.Api\Rectangles.Challenge.Api.csproj", "{EC4121F8-115F-465D-BDDA-9598184FFBBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles.Challenge.Core", "Rectangles.Challenge.Core\Rectangles.Challenge.Core.csproj", "{55A8EE49-FA99-4DD3-AA69-5D82142B86FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +18,17 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E06962E-1AD5-4E7A-8DF0-E8B819E3525D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E06962E-1AD5-4E7A-8DF0-E8B819E3525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E06962E-1AD5-4E7A-8DF0-E8B819E3525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E06962E-1AD5-4E7A-8DF0-E8B819E3525D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3821C3EF-21DB-4A57-BC11-19CE969E5095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3821C3EF-21DB-4A57-BC11-19CE969E5095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3821C3EF-21DB-4A57-BC11-19CE969E5095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3821C3EF-21DB-4A57-BC11-19CE969E5095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4121F8-115F-465D-BDDA-9598184FFBBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4121F8-115F-465D-BDDA-9598184FFBBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4121F8-115F-465D-BDDA-9598184FFBBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4121F8-115F-465D-BDDA-9598184FFBBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A8EE49-FA99-4DD3-AA69-5D82142B86FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A8EE49-FA99-4DD3-AA69-5D82142B86FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A8EE49-FA99-4DD3-AA69-5D82142B86FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A8EE49-FA99-4DD3-AA69-5D82142B86FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

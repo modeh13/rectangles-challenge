@@ -1,6 +1,6 @@
-using Rectangles.Challenge.Console.Models;
+using Rectangles.Challenge.Core.Models;
 
-namespace Rectangles.Challenge.Console.Algorithms.Abstractions;
+namespace Rectangles.Challenge.Core.Algorithms.Abstractions;
 
 public interface IRectangleAlgorithm<out TResult> where TResult : ResultBase
 {

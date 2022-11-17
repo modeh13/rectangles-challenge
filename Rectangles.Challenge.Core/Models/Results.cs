@@ -1,6 +1,6 @@
-using Rectangles.Challenge.Console.Models.Enums;
+using Rectangles.Challenge.Core.Models.Enums;
 
-namespace Rectangles.Challenge.Console.Models;
+namespace Rectangles.Challenge.Core.Models;
 
 public record ResultBase(ResultType ResultType)
 {

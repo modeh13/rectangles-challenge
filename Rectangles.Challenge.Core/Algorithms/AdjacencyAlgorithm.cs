@@ -1,15 +1,15 @@
-using Rectangles.Challenge.Console.Algorithms.Abstractions;
-using Rectangles.Challenge.Console.Models;
-using Rectangles.Challenge.Console.Models.Enums;
+using Rectangles.Challenge.Core.Algorithms.Abstractions;
+using Rectangles.Challenge.Core.Models;
+using Rectangles.Challenge.Core.Models.Enums;
 
-namespace Rectangles.Challenge.Console.Algorithms;
+namespace Rectangles.Challenge.Core.Algorithms;
 
 public class AdjacencyAlgorithm : IRectangleAlgorithm<ResultBase>
 {
     public ResultBase Execute(Rectangle rectangleA, Rectangle rectangleB)
     {
-        var rectangleALinesFromBottom = new[] { rectangleA.BottomLine, rectangleA.RightLine, rectangleA.TopLine, rectangleA.LeftLine };
-        var rectangleBLinesFromTop = new[] { rectangleB.TopLine, rectangleB.LeftLine, rectangleB.BottomLine, rectangleB.RightLine };
+        var rectangleALinesFromBottom = new Line[] { rectangleA.GetBottomLine(), rectangleA.GetRightLine(), rectangleA.GetTopLine(), rectangleA.GetLeftLine() };
+        var rectangleBLinesFromTop = new Line[] { rectangleB.GetTopLine(), rectangleB.GetLeftLine(), rectangleB.GetBottomLine(), rectangleB.GetRightLine() };
 
         for (var index = 0; index < rectangleALinesFromBottom.Length; index++)
         {

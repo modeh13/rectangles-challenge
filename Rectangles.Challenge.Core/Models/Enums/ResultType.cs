@@ -1,6 +1,6 @@
 using Ardalis.SmartEnum;
 
-namespace Rectangles.Challenge.Console.Models.Enums;
+namespace Rectangles.Challenge.Core.Models.Enums;
 
 public class ResultType : SmartEnum<ResultType>
 {

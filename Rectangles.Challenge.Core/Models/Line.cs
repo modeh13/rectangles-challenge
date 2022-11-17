@@ -1,4 +1,4 @@
-namespace Rectangles.Challenge.Console.Models;
+namespace Rectangles.Challenge.Core.Models;
 
 public record Line(Point Start, Point End);
 

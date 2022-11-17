@@ -1,4 +1,4 @@
-namespace Rectangles.Challenge.Console.Models;
+namespace Rectangles.Challenge.Core.Models;
 
 public record Point(int X, int Y)
 {

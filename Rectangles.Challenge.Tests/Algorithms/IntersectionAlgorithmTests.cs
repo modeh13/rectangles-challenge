@@ -175,29 +175,41 @@ public class IntersectionAlgorithmTests
                 new(4, 0)
             }
         };
+        // Case 13
+        yield return new object[]
+        {
+            new Rectangle(new Point(0, 0), new Size(5, 5)),
+            new Rectangle(new Point(4, 0), new Size(3, 4)),
+            new List<Point>
+            {
+                new(4, 0),
+                new(5, 0),
+                new(5, 4)
+            }
+        };
     }
 
     public static IEnumerable<object[]> NoIntersectionTestCases()
     {
-        // Case 13
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(6, 0), new Size(4, 4))
         };
-        // Case 14
+        // Case 2
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(0, 6), new Size(4, 4))
         };
-        // Case 15
+        // Case 3
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),
             new Rectangle(new Point(-5, 0), new Size(4, 4))
         };
-        // Case 16
+        // Case 4
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(5, 5)),

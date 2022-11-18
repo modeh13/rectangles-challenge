@@ -14,6 +14,11 @@ public record IntersectionResult(ResultType ResultType, IList<Point> Intersectio
 {
     public override string ToString()
     {
+        if (!IntersectionPoints.Any())
+        {
+            return base.ToString();
+        }
+
         var intersectionPoints = IntersectionPoints.Select(point => point.ToString());
         return $"{base.ToString()} [{string.Join(",", intersectionPoints)}]";
     }

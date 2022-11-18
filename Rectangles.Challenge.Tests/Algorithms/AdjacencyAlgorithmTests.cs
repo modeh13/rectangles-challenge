@@ -68,7 +68,7 @@ public class AdjacencyAlgorithmTests
 
     public static IEnumerable<object[]> AdjacencySubLineTestCases()
     {
-        // Case 1 (Adjacency Case 1)
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -120,25 +120,25 @@ public class AdjacencyAlgorithmTests
     
     public static IEnumerable<object[]> AdjacencyProperTestCases()
     {
-        // Case 9
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(4, 0), new Size(4, 4))
         };
-        // Case 10
+        // Case 2
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(0, 4), new Size(4, 4))
         };
-        // Case 11
+        // Case 3
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-4, 0), new Size(4, 4))
         };
-        // Case 12
+        // Case 4
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -148,55 +148,55 @@ public class AdjacencyAlgorithmTests
     
     public static IEnumerable<object[]> AdjacencyPartialTestCases()
     {
-        // Case 13
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(4, 2), new Size(2, 4))
         };
-        // Case 14
+        // Case 2
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-2, 4), new Size(4, 2))
         };
-        // Case 15
+        // Case 3
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-2, -2), new Size(2, 4))
         };
-        // Case 16
+        // Case 4
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(2, -2), new Size(4, 2))
         };
-        // Case 17
+        // Case 5
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(4, -2), new Size(2, 4))
         };
-        // Case 18
+        // Case 6
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(2, 4), new Size(4, 2))
         };
-        // Case 19
+        // Case 7
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-2, 2), new Size(2, 4))
         };
-        // Case 20
+        // Case 8
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-2, -2), new Size(4, 2))
         };
-        // Case 21
+        // Case 9
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
@@ -206,25 +206,25 @@ public class AdjacencyAlgorithmTests
     
     public static IEnumerable<object[]> NotAdjacentTestCases()
     {
-        // Case 22
+        // Case 1
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(5, 0), new Size(4, 4))
         };
-        // Case 23
+        // Case 2
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(0, 5), new Size(4, 4))
         };
-        // Case 24
+        // Case 3
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),
             new Rectangle(new Point(-5, 0), new Size(4, 4))
         };
-        // Case 25
+        // Case 4
         yield return new object[]
         {
             new Rectangle(new Point(0, 0), new Size(4, 4)),

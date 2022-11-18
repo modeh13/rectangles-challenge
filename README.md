@@ -1,6 +1,6 @@
 # Rectangles Algorithms
 
-This repository contains a .Net Solution file (.sln) which has an ASP.Net Web application (API) to interact with user request.
+This repository contains a .Net Solution file (.sln) which has an ASP.Net Web application (API) to interact with the user's request.
 It allows to execute and verify proposed Rectangle Algorithms (Intersection, Containment, and Adjacency).
 
 ## Projects
@@ -9,11 +9,11 @@ It allows to execute and verify proposed Rectangle Algorithms (Intersection, Con
 - **Rectangles.Challenge.Core**: Main project. It contains the implementation for each Algorithm, also we can find **Rectangle** entity/model 
 definition among others.
 - **Rectangles.Challenge.Tests**: Unit Tests project. It has a specific Test Class for each Algorithm. 
-Additionally, we have a visual reference of each test case (Go to _Algorithms/References_ folder). 
+Additionally, we have a visual reference of each test case (Go to [Test cases...](./Rectangles.Challenge.Tests/Algorithms/References)). 
 
 ## Dependencies
 
-Project developed by using .Net version 7. To be able to run application from an IDE. We must use latest version of IDEs (Visual Studio 2022, Rider, or VSCode).
+Project developed by using .Net version 7. To be able to run the application from an IDE. We must use latest version of IDEs (Visual Studio 2022, Rider, or VSCode).
 However, cloning repository and running application from Command Line. It's the recommended option.
 
 - [.Net 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
@@ -29,18 +29,18 @@ However, cloning repository and running application from Command Line. It's the 
 dotnet run -c Release --project Rectangles.Challenge.Api/Rectangles.Challenge.Api.csproj
 ```
 - Application listens to HTTP requests at port 5157 by default.
-- Use [Postman](https://www.postman.com/downloads/) or any tool to use APIs. 
-  - As suggested option. Open a new browser Tab/Window and navigate to http://localhost:5157/swagger/index.html. That must take you to Swagger page. 
+- Use [Postman](https://www.postman.com/downloads/) or any tool to consume API services. 
+  - As suggested option. Open a new browser Tab/Window and navigate to http://localhost:5157/swagger/index.html. That will take you to Swagger page. 
 
 ## Rectangle entity
 
-Rectangle can be represented by using different alternatives. Project has decided to use two main elements to represents a Rectangle.
+Rectangle can be represented by using different alternatives. Dev Team has decided to use two main elements to represents a Rectangle.
 
 - Point: It's an entity/model that indicates the values for X and Y axis. 
 - Size: It indicates Width and Height sizes for an element.
 
 A rectangle is made up of Point and Size elements. The point represents the source of the Rectangle. 
-In our case, it will be the bottom left point of the rectangle.
+In our case, it will be the bottom left point of the rectangle (Important).
 
 Example:
 ```json lines
